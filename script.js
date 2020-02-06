@@ -1,8 +1,15 @@
 const video = document.getElementById('video');
 const play = document.getElementById('play');
 const stop = document.getElementById('stop');
+const rwd = document.getElementById('rwd');
+const fwd = document.getElementById('fwd');
+const volume = document.getElementById('volume');
+const fullscreen = document.getElementById('fullscreen');
 const progress = document.getElementById('progress');
 const timestamp = document.getElementById('timestamp');
+
+let intervalFwd;
+let intervalRwd;
 
 // Play/Pause video
 function toggleVideoStatus() {
@@ -52,6 +59,30 @@ function stopVideo() {
   video.pause();
 }
 
+// Video volume control
+function toggleVideoVolume() {
+  if (video.muted === true) {
+    // Unmute the video
+    video.muted = false;
+    volume.innerHTML = '<i class="fa fa-volume-up fa-2x"></i>';
+  } else {
+    // Mute the video
+    video.muted = true;
+    volume.innerHTML = '<i class="fa fa-volume-off fa-2x"></i>';
+  }
+}
+
+// FullScreen mode
+function toggleFullScreen() {
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen();
+  } else if (video.mozRequestFullscreen) {
+    video.mozRequestFullscreen();
+  }
+}
+
 // Event Listeners
 video.addEventListener('click', toggleVideoStatus);
 video.addEventListener('pause', updatePlayIcon);
@@ -63,3 +94,9 @@ play.addEventListener('click', toggleVideoStatus);
 stop.addEventListener('click', stopVideo);
 
 progress.addEventListener('change', setVideoProgress);
+
+volume.addEventListener('click', toggleVideoVolume);
+
+fullscreen.addEventListener('click', toggleFullScreen);
+
+// rwd.addEventListener('click', rewindVideo);

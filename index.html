@@ -17,7 +17,7 @@
   <body>
     <h1>Customized Video Player</h1>
     <video
-      src="videos/gone.mp4"
+      src="videos\Spider-Man.Into.the.Spider-Verse.2018.mp4"
       id="video"
       class="screen"
       poster="img/poster.png"
@@ -29,6 +29,15 @@
       <button class="btn" id="stop">
         <i class="fa fa-stop fa-2x"></i>
       </button>
+      <!-- <button class="btn" id="rwd">
+        <i class="fa fa-backward fa-2x"></i>
+      </button>
+      <button class="btn" id="fwd">
+        <i class="fa fa-forward fa-2x"></i>
+      </button> -->
+      <button class="btn" id="volume">
+        <i class="fa fa-volume-up fa-2x"></i>
+      </button>
       <input
         type="range"
         class="progress"
@@ -39,6 +48,9 @@
         value="0"
       />
       <span class="timestamp" id="timestamp">00:00</span>
+      <button class="btn" id="fullscreen">
+        <i class="fa fa-expand fa-2x"></i>
+      </button>
     </div>
 
     <script src="script.js"></script>
